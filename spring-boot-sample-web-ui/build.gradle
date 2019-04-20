@@ -1,0 +1,48 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-actuator:2.0.2.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-security:2.0.2.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf:2.0.2.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE'
+}
+
+group = 'sample.web.ui'
+version = '0.0.1-SNAPSHOT'
+description = 'Spring Boot Web UI Sample'
+sourceCompatibility = '1.8'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
