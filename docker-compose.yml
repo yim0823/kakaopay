@@ -1,0 +1,33 @@
+version: '3.2'
+
+services:
+  server1:
+      build: ./spring-boot-sample-web-ui
+      tty: true
+      volumes:
+        - './spring-boot-sample-web-ui/src:/backend-dir-inside-container'
+
+  server2:
+      build: ./spring-boot-sample-web-ui
+      tty: true
+      volumes:
+        - './spring-boot-sample-web-ui/src:/backend-dir-inside-container'
+
+  server3:
+      build: ./spring-boot-sample-web-ui
+      tty: true
+      volumes:
+        - './spring-boot-sample-web-ui/src:/backend-dir-inside-container'
+
+  loadbalancer:
+      build: ./load-balancer
+      tty: true
+      links:
+          - server1
+          - server2
+          - server3
+      ports:
+          - '80:80'
+
+volumes:
+  backend:
