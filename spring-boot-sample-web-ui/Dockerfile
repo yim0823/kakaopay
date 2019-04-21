@@ -21,3 +21,4 @@ EXPOSE 8082
 
 # Execute Spring boot [dev, prod, local, test]
 ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod",$ARTIFACT_NAME]
+
