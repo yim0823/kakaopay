@@ -9,8 +9,8 @@ RUN apt-get update
 RUN apt-get -qq -y install git curl build-essential
 
 # Create src directory and move to src directory
-RUN mkdir src
-WORKDIR /src
+#RUN mkdir src
+#WORKDIR /src
 
 # Clone git repository
 RUN git clone https://github.com/yim0823/kakaopay.git
