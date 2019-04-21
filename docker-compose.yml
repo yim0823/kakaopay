@@ -2,25 +2,25 @@ version: '3.2'
 
 services:
   server1:
-      build: /usr/app/kakaopay/spring-boot-sample-web-ui
+      build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - '/usr/app/spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
 
   server2:
-      build: /usr/app/kakaopay/spring-boot-sample-web-ui
+      build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - './spring-boot-sample-web-ui/src:/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
 
   server3:
-      build: /usr/app/kakaopay/spring-boot-sample-web-ui
+      build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - './spring-boot-sample-web-ui/src:/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
 
   loadbalancer:
-      build: /usr/app/kakaopay/load-balancer
+      build: ./load-balancer
       tty: true
       links:
           - server1
