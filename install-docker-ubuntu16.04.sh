@@ -56,3 +56,6 @@ echo "Docker compose installed"
 sudo mkdir -p /usr/app
 cd /usr/app
 sudo git clone https://github.com/yim0823/kakaopay.git
+
+# Install gradle
+sudo apt-get -y gradle
