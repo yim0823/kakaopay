@@ -78,3 +78,6 @@ sudo rm ~/gradle-5.4-all.zip
 
 # add Gradle to `PATH` environment variable:
 export PATH=$PATH:/opt/gradle/gradle-5.4/bin
+
+# Change chmod of the gradlew
+sudo chmod +x gradlew
