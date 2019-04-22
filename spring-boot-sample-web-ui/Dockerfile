@@ -3,9 +3,9 @@ MAINTAINER Taehyoung Yim <yim0823@naver.com>
 
 # Set Appropriate Environmental Variables
 ENV APP_HOME=/usr/app/kakaopay
-#ENV SERVICE_NAME=spring-boot-sample-web-ui
+ENV SERVICE_NAME=spring-boot-sample-web-ui
 #ENV ARTIFACT_PATH=$APP_HOME/$SERVICE_NAME/target
-#ENV ARTIFACT_NAME=$SERVICE_NAME-2.0.2.RELEASE.jar
+ENV ARTIFACT_NAME=$SERVICE_NAME-2.0.2.RELEASE.jar
 
 # Create a directory in the container where the code will be placed
 RUN mkdir -p $APP_HOME/backend-dir-inside-container
