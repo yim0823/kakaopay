@@ -58,4 +58,26 @@ cd /usr/app
 sudo git clone https://github.com/yim0823/kakaopay.git
 
 # Install gradle
-sudo apt-get -y gradle
+# Create directory and clone git repository
+sudo mkdir -p /usr/app
+cd /usr/app
+sudo git clone https://github.com/yim0823/kakaopay.git
+
+# Install gradle
+sudo wget -O ~/gradle-5.4-all.zip https://services.gradle.org/distributions/gradle-5.4-all.zip
+
+# install unzip - tool for extracting compressed files from ZIP archive:
+sudo apt-get install unzip
+
+# unzip Gradle archive:
+sudo mkdir /opt/gradle
+sudo unzip -d /opt/gradle ~/gradle-5.4-all.zip
+
+# delete Gradle archive:
+rm ~/gradle-5.4-all.zip
+
+# add Gradle to `PATH` environment variable:
+echo "export PATH=\$PATH:/opt/gradle/gradle-5.4-all/bin" >> ~/.bashrc
+
+# execute `~/.bashrc` file:
+source ~/.bashrc
