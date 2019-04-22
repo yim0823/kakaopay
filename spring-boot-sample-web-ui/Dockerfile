@@ -1,6 +1,9 @@
 FROM java:8
 MAINTAINER Taehyoung Yim <yim0823@naver.com>
 
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
 # Set Appropriate Environmental Variables
 ENV APP_HOME=backend-dir-inside-container
 ENV ARTIFACT_NAME=spring-boot-sample-web-ui-2.0.2.RELEASE.jar
