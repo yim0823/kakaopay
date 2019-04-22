@@ -74,10 +74,7 @@ sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle ~/gradle-5.4-all.zip
 
 # delete Gradle archive:
-rm ~/gradle-5.4-all.zip
+sudo rm ~/gradle-5.4-all.zip
 
 # add Gradle to `PATH` environment variable:
-echo "export PATH=\$PATH:/opt/gradle/gradle-5.4-all/bin" >> ~/.bashrc
-
-# execute `~/.bashrc` file:
-source ~/.bashrc
+export PATH=$PATH:/opt/gradle/gradle-5.4/bin
