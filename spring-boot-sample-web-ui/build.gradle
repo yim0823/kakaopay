@@ -23,6 +23,7 @@ repositories {
 }
 
 dependencies {
+	compile 'org.springframework.boot:spring-boot:2.0.2.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-actuator:2.0.2.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-security:2.0.2.RELEASE'
@@ -38,7 +39,6 @@ sourceCompatibility = '1.8'
 jar {
     manifest {
         attributes(
-        	'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
             'Main-Class': 'sample.web.ui.SampleWebUiApplication'
         )
     }
