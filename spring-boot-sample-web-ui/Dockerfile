@@ -21,4 +21,4 @@ RUN mkdir -p /backend-dir-inside-container
 EXPOSE 8082
 
 # Execute Spring boot [dev, prod, local, test]
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/backend-dir-inside-container/spring-boot-sample-web-ui-0.0.1-SNAPSHOT.jar"]
+#ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/backend-dir-inside-container/spring-boot-sample-web-ui-0.0.1-SNAPSHOT.jar"]
