@@ -57,6 +57,9 @@ sudo mkdir -p /usr/app
 cd /usr/app
 sudo git clone https://github.com/yim0823/kakaopay.git
 
+# Change chmod of the gradlew
+sudo chmod +x ./kakaopay/spring-boot-sample-web-ui/gradlew
+
 # Install gradle
 # Create directory and clone git repository
 sudo mkdir -p /usr/app
@@ -78,9 +81,6 @@ sudo rm ~/gradle-5.4-all.zip
 
 # add Gradle to `PATH` environment variable:
 export PATH=$PATH:/opt/gradle/gradle-5.4/bin
-
-# Change chmod of the gradlew
-sudo chmod +x gradlew
 
 # Install java for gradle
 sudo apt-get install openjdk-8-jdk
