@@ -2,6 +2,9 @@
 
 set -xe
 
+# Remove old version docker
+sudo apt-get remove docker docker-engine docker.io
+
 # Update apt sources
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -13,9 +16,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
  
 # Upgrades apt packages
 sudo apt-get update
-
-# Remove old repo
-sudo apt-get purge lxc-docker
 
 # Verify the correct repo
 sudo apt-cache policy docker-engine
