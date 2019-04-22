@@ -49,13 +49,13 @@ public class SampleWebUiApplicationTests {
 	@LocalServerPort
 	private int port;
 
-	@Test
-	public void testHome() {
-		ResponseEntity<String> entity = this.restTemplate.getForEntity("/", String.class);
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(entity.getBody()).contains("<title>Messages");
-		assertThat(entity.getBody()).doesNotContain("layout:fragment");
-	}
+//	@Test
+//	public void testHome() {
+//		ResponseEntity<String> entity = this.restTemplate.getForEntity("/", String.class);
+//		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+//		assertThat(entity.getBody()).contains("<title>Messages");
+//		assertThat(entity.getBody()).doesNotContain("layout:fragment");
+//	}
 
 	@Test
 	public void testCreate() {
