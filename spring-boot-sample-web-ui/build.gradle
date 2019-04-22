@@ -35,6 +35,14 @@ version = '0.0.1-SNAPSHOT'
 description = 'Spring Boot Web UI Sample'
 sourceCompatibility = '1.8'
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'sample.web.ui.SampleWebUiApplication'
+        )
+    }
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
