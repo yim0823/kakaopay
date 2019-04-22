@@ -81,3 +81,6 @@ export PATH=$PATH:/opt/gradle/gradle-5.4/bin
 
 # Change chmod of the gradlew
 sudo chmod +x gradlew
+
+# Install java for gradle
+sudo apt-get install openjdk-8-jdk
