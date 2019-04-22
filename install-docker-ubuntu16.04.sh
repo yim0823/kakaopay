@@ -21,7 +21,7 @@ sudo apt-get update
 sudo apt-cache policy docker-engine
 
 # Install linux-image-extra package
-sudo apt-get install -y linux-image-extra-$(uname -r)
+#sudo apt-get install -y linux-image-extra-$(uname -r)
 
 # Install docker python-pip
 sudo apt-get install -y docker-ce
@@ -45,6 +45,6 @@ sudo apt-get install -y docker-compose
 echo "Docker compose installed"
 
 # Create directory and clone git repository
-mkdir -p /usr/app
+sudo mkdir -p /usr/app
 cd /usr/app
-git clone https://github.com/yim0823/kakaopay.git
+sudo git clone https://github.com/yim0823/kakaopay.git
