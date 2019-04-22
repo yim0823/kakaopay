@@ -5,19 +5,19 @@ services:
       build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/backend-dir-inside-container'
 
   server2:
       build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/backend-dir-inside-container'
 
   server3:
       build: ./spring-boot-sample-web-ui
       tty: true
       volumes:
-        - './spring-boot-sample-web-ui/target:/usr/app/backend-dir-inside-container'
+        - './spring-boot-sample-web-ui/target:/backend-dir-inside-container'
 
   loadbalancer:
       build: ./load-balancer
