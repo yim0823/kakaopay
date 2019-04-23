@@ -18,10 +18,6 @@ echo "Start Build"
 cd $REPOSITORY/$SERVICE_NAME/$PROJECT_NAME
 ./gradlew build
 
-echo "Copy Build file"
-
-cp ./build/libs/*.jar $REPOSITORY/
-
 EXIST_BLUE=$(DOCKER_HOST=${TARGET_DEPLOY_TCP} docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml ps | grep Up)
 
 if [ -z "$EXIST_BLUE" ]; then
