@@ -16,7 +16,21 @@
 
 ## 구성 요소
  - load-balancer folder: Nginx에 대한 것으로 도커파일과 Nginx 설정 파일이 있다.
+   - nginx.conf: scale in/out 가능, Round robin 방식, Reverse proxy 설정 
  - spring-boot-sample-web-ui project: Java8 기반으로 한 web application 프로젝트 파일들과 도커파일이 있다.
+   - Maven -> Gradle로 변경.
+   - logback를 설정(logback-spring.xml)하여 log를 file로 적재, daily && filesize 10mb 마다 rollover.
+   - Spring-boot의 actuator 이용해 health check 구현, 
+     - MonitorController.java [GET /health] 
+     - application-prod.properties 설정:
+     ```
+     spring.security.user.name=kakaopay
+     spring.security.user.password=kakaopay
+     
+     management.endpoints.web.exposure.include=health,metrics
+     management.endpoints.web.base-path=/health
+     management.endpoints.web.path-mapping.health=healthcheck
+    ```
  - ubuntu folder: ubuntu16.04로 초기 환경을 도커로 세팅한다.(사용하지 않음)
  - deploy.sh: 도커 이용한 웹서버 무중단 배포를 위한 스크립트.
    - [blue-green](https://subicura.com/2016/06/07/zero-downtime-docker-deployment.html, "BlueGreenDeployment") 배포 방식을 이용하여 무중단 배포를 구현
