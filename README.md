@@ -130,5 +130,5 @@ $ python3 /usr/app/kakaopay/devops.py -c check
  - [Get] /heath/healthcheck 체크
  ```
  request : http://[IP]/heath/healthcheck
- response : {status:up}
+ response : {"status":"UP"}
  ```
