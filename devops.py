@@ -66,7 +66,7 @@ def main(unused_args):
         run_shell('sudo', 'sh', '/usr/app/kakaopay/deploy.sh')
     elif command == 'check':
         print('# Check the service')
-        run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-' + color, '-f', fileName + '.' + color + '.yml', 'ps', '|', 'grep', 'Up')
+        run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-' + color, '-f', fileName, 'ps', '|', 'grep', 'Up')
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='The objective of this program is to operate web servers of the Kakaopay.')
