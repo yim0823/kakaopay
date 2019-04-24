@@ -54,13 +54,13 @@ def main(unused_args):
     
     if command == 'start':
         print('# Start docker-compose')
-        run_shell('sudo', 'docker-compose', '-f', fileName, 'start') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.yml start
+        run_shell('sudo', 'docker-compose', '-f', fileName, 'start') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.blue.yml start
     elif command == 'stop':
         print('# Stop docker-compose')
-        run_shell('sudo', 'docker-compose', '-f', fileName, 'stop') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.yml stop
+        run_shell('sudo', 'docker-compose', '-f', fileName, 'stop') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.blue.yml stop
     elif command == 'stop':
         print('# Restart docker-compose')
-        run_shell('sudo', 'docker-compose', '-f', fileName, 'restart') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.yml restart
+        run_shell('sudo', 'docker-compose', '-f', fileName, 'restart') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.blue.yml restart
     elif command == 'deploy':
         print('# Start non-disruptive deployment')
         run_shell('sudo', 'sh', 'deploy.sh')
