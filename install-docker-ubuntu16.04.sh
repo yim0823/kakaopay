@@ -31,7 +31,7 @@ sudo apt-cache policy docker-engine
 # Install linux-image-extra package
 #sudo apt-get install -y linux-image-extra-$(uname -r)
 
-# Install docker python-pip
+# Install docker
 sudo apt-get install -y docker-ce
 
 # Install basic packages
