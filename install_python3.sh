@@ -43,6 +43,11 @@ else
 	echo "Already ready."
 fi
 
-# Install the necessary packages
-echo "Installing... necessary packages"
+# Install the necessary modules for python
+echo "Installing necessary modules for python"
 sudo pip3 install pandas pyyaml>=3.13 validators>=0.12 argparse
+
+# If there is a error like this, 
+#  File "/usr/bin/pip3", line 9, in <module> from pip import main
+# you try to execute next command.
+# sudo python3 -m pip uninstall pip && sudo apt-get install python3-pip --reinstall
