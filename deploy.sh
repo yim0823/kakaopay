@@ -8,7 +8,7 @@ REPOSITORY=/usr/app
 SERVICE_NAME=kakaopay
 PROJECT_NAME=spring-boot-sample-web-ui
 
-DOCKER_APP_NAME=kakaopay_server
+DOCKER_APP_NAME=$SERVICE_NAME
 
 cd $REPOSITORY
 
