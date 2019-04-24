@@ -53,6 +53,7 @@
      ```
      spring.security.user.name=kakaopay
      spring.security.user.password=kakaopay
+     
      management.endpoints.web.exposure.include=health,metrics
      management.endpoints.web.base-path=/health
      management.endpoints.web.path-mapping.health=healthcheck
