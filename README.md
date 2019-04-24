@@ -17,6 +17,30 @@
 ## 구성 요소
  - load-balancer folder: Nginx에 대한 것으로 도커파일과 Nginx 설정 파일이 있다.
    - nginx.conf: scale in/out 가능, Round robin 방식, Reverse proxy 설정 
+   ```
+   http {
+
+    upstream localhost {
+        server server1:8082;
+        server server2:8082;
+        server server3:8082;
+    }
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://localhost;
+            proxy_set_header Host $host;
+        }
+    }
+ 
+    keepalive_timeout  65;
+ 
+    include /etc/nginx/conf.d/*.conf;
+   }
+   ```
  - spring-boot-sample-web-ui project: Java8 기반으로 한 web application 프로젝트 파일들과 도커파일이 있다.
    - Maven -> Gradle로 변경.
    - logback를 설정(logback-spring.xml)하여 log를 file로 적재, daily && filesize 10mb 마다 rollover.
