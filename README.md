@@ -15,14 +15,21 @@
 >   - [GET /health] Health check: REST API 응답결과는 JSON Object 구현
 
 ## 구성 요소
+ - load-balancer folder: Nginx에 대한 것으로 도커파일과 Nginx 설정 파일이 있다.
+ - spring-boot-sample-web-ui project: Java8 기반으로 한 web application 프로젝트 파일들과 도커파일이 있다.
+ - ubuntu folder: ubuntu16.04로 초기 환경을 도커로 세팅한다.(사용하지 않음)
+ - deploy.sh: 도커 이용한 웹서버 무중단 배포를 위한 스크립트.
+   - [blue-green](https://subicura.com/2016/06/07/zero-downtime-docker-deployment.html, "BlueGreenDeployment") 배포 방식을 이용하여 무중단 배포를 구현
  - devops.py: 웹서버 운영을 위한 파이썬3 기반으로한 스크립트.
+ - docker-compose.blue.yml: 도커에 사용될 docker-compose 파일.
+ - docker-compose.green.yml: 도커에 사용될 docker-compose 파일.
  - install-docker-ubuntu16.04.sh: 운영체제(우분투16.04기반)에 초기 환경 세팅하는 스크립트.
    - Installing docker-ce and essential libararies
    - Installing docker-compose
    - Installing git and cloning https://github.com/yim0823/kakaopay.git
    - Installing gradle and configuring environment
- - deploy.sh: 도커 이용한 웹서버 무중단 배포를 위한 스크립트.
-   - [blue-green](https://subicura.com/2016/06/07/zero-downtime-docker-deployment.html, "BlueGreenDeployment") 배포 방식을 이용하여 무중단 배포를 구현
+ - install_python3.sh: 우분투에 파이썬3를 설치하고 필요한 모듈을 설치하여 devops.py 파일이 동작 가능한 환경을 만드는 스크립트.
+
 
 Make image: 
 docker build -t ubuntu-kakaopay-web:0.0.1 -t ubuntu-kakaopay-web:0.0.1 .
