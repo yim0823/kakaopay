@@ -45,7 +45,7 @@ fi
 
 # Install the necessary modules for python
 echo "Installing necessary modules for python"
-sudo pip3 install pandas pyyaml>=3.13 validators>=0.12 argparse
+sudo pip3 install argparse
 
 # If there is a error like this, 
 #  File "/usr/bin/pip3", line 9, in <module> from pip import main
