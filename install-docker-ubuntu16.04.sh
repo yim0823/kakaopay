@@ -40,7 +40,6 @@ sudo apt-get install -y git build-essential
 # Start docker & create group & add group account
 sudo service docker start
 sudo systemctl enable docker
-sudo groupadd docker
 sudo usermod -aG docker $(whoami)
 sudo systemctl restart docker
 
