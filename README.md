@@ -63,24 +63,28 @@
    - [blue-green](https://subicura.com/2016/06/07/zero-downtime-docker-deployment.html, "BlueGreenDeployment") 배포 방식을 이용하여 무중단 배포를 구현
    - 단독으로 싫행 가능하지만 devops.py에 의해 실행되게 한다.
    ```
-   $ sudo devops.py -c delopy
+   $ sudo /usr/app/kakaopay/devops.py -c delopy
    ```
  - devops.py: 웹서버 운영을 위한 파이썬3 기반으로한 스크립트.
    - start : 컨테이너 환경 전체 실행
    ```
-   $ sudo devops.py -c start
+   $ sudo /usr/app/kakaopay/devops.py -c start
    ```
    - stop : 컨테이너 환경 전체 중지
    ```
-   $ sudo devops.py -c stop
+   $ sudo /usr/app/kakaopay/devops.py -c stop
    ```
    - restart : 컨테이너 환경 전체 재시작
    ```
-   $ sudo devops.py -c restart
+   $ sudo /usr/app/kakaopay/devops.py -c restart
    ```
-   - deploy : 웹어플리케이션 무중단 배포
+   - deploy : 웹어플리케이션 구성 혹은 무중단 배포
    ```
-   $ sudo devops.py -c delopy
+   $ sudo /usr/app/kakaopay/devops.py -c delopy
+   ```
+   - check : 서비스 프로세스 확인
+   ```
+   $ sudo /usr/app/kakaopay/devops.py -c check
    ```
  - docker-compose.blue.yml | docker-compose.green.yml: 도커에 사용될 docker-compose 파일.
    - 무중단 배포에 활용될 두 docker-compose.yml 파일.
@@ -119,7 +123,12 @@ $ python3 /usr/app/kakaopay/devops.py -c check
 - `-c, --command` : '동작'[start | stop | restart | deploy | check]을 지정합니다.
 
 2. **확인방법**
- - 도커 
+ - docker-compose로 실행한 서비스에 대한 ps의 'Up' 상태 체크
  ```
  $ python3 /usr/app/kakaopay/devops.py -c check
+ ```
+ - [Get] /heath/healthcheck 체크
+ ```
+ request : http://[IP]/heath/healthcheck
+ response : {status:up}
  ```
