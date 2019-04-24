@@ -38,10 +38,10 @@ def main(unused_args):
     fileName = DOCKER_COMPOSE_PATH + '/docker-compose'
     
     print('Checking processes of the {}'.format(SERVICE_NAME))
-    exist_blue = run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME, '-f', fileName + '.blue.yml', 'ps', '|', 'Up')
+    exist_blue = run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-blue', '-f', fileName + '.blue.yml', 'ps', '|', 'Up')
     
     print()
-    exist_green = run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME, '-f', fileName + '.green.yml', 'ps', '|', 'Up')
+    exist_green = run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-green', '-f', fileName + '.green.yml', 'ps', '|', 'Up')
     if exist_blue != '':
         fileName = fileName + '.blue.yml'
         color = 'blue'
@@ -66,7 +66,7 @@ def main(unused_args):
         run_shell('sudo', 'sh', 'deploy.sh')
     elif command == 'check':
         print('# Check the service')
-        run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME, '-f', fileName + '.' + color + '.yml', 'ps', '|', 'Up')
+        run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-' + color, '-f', fileName + '.' + color + '.yml', 'ps', '|', 'Up')
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='The objective of this program is to operate web servers of the Kakaopay.')
