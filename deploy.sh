@@ -1,5 +1,12 @@
 #!/bin/bash
 
+##########################################################################################
+# This file is for non-disruptive deployment.
+# You have to change a variable's value, TARGET_DEPLOY_TCP, to your docker machine 
+# when using the script. In order to execute the docker CLI, It uses Docker remote API 
+# in this script.
+##########################################################################################
+
 REPOSITORY=/usr/app
 SERVICE_NAME=kakaopay
 PROJECT_NAME=spring-boot-sample-web-ui
