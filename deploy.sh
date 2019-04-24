@@ -22,6 +22,7 @@ cd $REPOSITORY/$SERVICE_NAME/$PROJECT_NAME
 ./gradlew build
 
 EXIST_BLUE=$(docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml ps | grep Up)
+EXIST_GREEN=$(docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green.yml ps | grep Up)
 
 if [ -z "$EXIST_BLUE" ]; then
     echo "blue up"
@@ -30,11 +31,14 @@ if [ -z "$EXIST_BLUE" ]; then
     sleep 10
 
     docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green.yml down
-else
+elif [ -z "$EXIST_GREEN" ]; then
     echo "green up"
     docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green.yml up -d
 
     sleep 10
 
     docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml down
+else
+    echo "Build images before starting containers."
+    docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml up --build
 fi
