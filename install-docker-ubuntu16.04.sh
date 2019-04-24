@@ -1,5 +1,13 @@
 #!/bin/sh
 
+##############################################################################
+# Configure the environment to execute the docker
+# 1. Installing docker-ce and essential libararies
+# 2. Installing docker-compose
+# 3. Installing git and cloning https://github.com/yim0823/kakaopay.git
+# 4. Installing gradle and configuring environment
+##############################################################################
+
 set -xe
 
 # Remove old version docker
