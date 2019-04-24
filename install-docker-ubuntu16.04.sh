@@ -84,4 +84,4 @@ sudo rm ~/gradle-5.4-all.zip
 export PATH=$PATH:/opt/gradle/gradle-5.4/bin
 
 # Install java for gradle
-sudo apt-get install openjdk-8-jdk
+sudo apt-get install -y openjdk-8-jdk
