@@ -4,8 +4,8 @@
 # This file is for non-disruptive deployment.
 ###################################################
 
-REPOSITORY=/usr/app
 SERVICE_NAME=kakaopay
+REPOSITORY=/usr/app/$SERVICE_NAME
 PROJECT_NAME=spring-boot-sample-web-ui
 
 DOCKER_APP_NAME=$SERVICE_NAME
@@ -18,7 +18,7 @@ git pull
 
 echo "Start Build"
 
-cd $REPOSITORY/$SERVICE_NAME/$PROJECT_NAME
+cd $REPOSITORY/$PROJECT_NAME
 ./gradlew build
 
 EXIST_BLUE=$(docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml ps | grep Up)
