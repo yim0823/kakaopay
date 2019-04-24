@@ -35,7 +35,7 @@ sudo apt-cache policy docker-engine
 sudo apt-get install -y docker-ce
 
 # Install basic packages
-sudo apt-get install -y python-pip git build-essential
+sudo apt-get install -y git build-essential
 
 # Start docker & create group & add group account
 sudo service docker start
