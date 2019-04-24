@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/monitor")
+@RequestMapping("/health")
 public class MonitorController {
 
 	public Logger logger = LoggerFactory.getLogger(MonitorController.class);
