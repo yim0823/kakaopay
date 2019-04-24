@@ -82,8 +82,9 @@
    ```
    $ sudo devops.py -c delopy
    ```
- - docker-compose.blue.yml: 도커에 사용될 docker-compose 파일.
- - docker-compose.green.yml: 도커에 사용될 docker-compose 파일.
+ - docker-compose.blue.yml | docker-compose.green.yml: 도커에 사용될 docker-compose 파일.
+   - 무중단 배포에 활용될 두 docker-compose.yml 파일.
+   - scale in/out할 경우, nginx.conf의 upstream 요소에 server를 늘리거나 줄임을 하고 이 docker-compose.*.yml의 services 요소의 server를 같이 조정하면 됨.
  - install-docker-ubuntu16.04.sh: 운영체제(우분투16.04기반)에 초기 환경 세팅하는 스크립트.
    - Installing docker-ce and essential libararies
    - Installing docker-compose
