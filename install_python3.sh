@@ -45,4 +45,4 @@ fi
 
 # Install the necessary packages
 echo "Installing... necessary packages"
-sudo pip3 install -r requirements.txt
+sudo pip3 install -y pandas pyyaml>=3.13 validators>=0.12 argparse
