@@ -26,19 +26,19 @@ EXIST_GREEN=$(docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green
 
 if [ -z "$EXIST_BLUE" ]; then
     echo "blue up"
-    docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml up -d
+    docker-compose -p ${DOCKER_APP_NAME}-blue -f $REPOSITORY/docker-compose.blue.yml up -d
 
     sleep 10
 
-    docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green.yml down
+    docker-compose -p ${DOCKER_APP_NAME}-green -f $REPOSITORY/docker-compose.green.yml down
 elif [ -z "$EXIST_GREEN" ]; then
     echo "green up"
-    docker-compose -p ${DOCKER_APP_NAME}-green -f docker-compose.green.yml up -d
+    docker-compose -p ${DOCKER_APP_NAME}-green -f $REPOSITORY/docker-compose.green.yml up -d
 
     sleep 10
 
-    docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml down
+    docker-compose -p ${DOCKER_APP_NAME}-blue -f $REPOSITORY/docker-compose.blue.yml down
 else
     echo "Build images before starting containers."
-    docker-compose -p ${DOCKER_APP_NAME}-blue -f docker-compose.blue.yml up --build
+    docker-compose -p ${DOCKER_APP_NAME}-blue -f $REPOSITORY/docker-compose.blue.yml up --build
 fi
