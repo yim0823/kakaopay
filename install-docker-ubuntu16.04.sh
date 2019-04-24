@@ -68,12 +68,6 @@ sudo git clone https://github.com/yim0823/kakaopay.git
 sudo chmod +x ./kakaopay/spring-boot-sample-web-ui/gradlew
 
 # Install gradle
-# Create directory and clone git repository
-sudo mkdir -p /usr/app
-cd /usr/app
-sudo git clone https://github.com/yim0823/kakaopay.git
-
-# Install gradle
 sudo wget -O ~/gradle-5.4-all.zip https://services.gradle.org/distributions/gradle-5.4-all.zip
 
 # install unzip - tool for extracting compressed files from ZIP archive:
