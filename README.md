@@ -97,16 +97,29 @@ The following platforms are currently tested:
 - Ubuntu 16.04
 
 ## Installation & Requirements
- - 도커용 서버에 두 파일을 옮깁니다. 그리고 다음 명령어를 순차적으로 실행해 설치를 진행합니다.
+ - 도커용 서버에 두 파일(install-docker-ubuntu16.04.sh, install_python3.sh)을 옮깁니다. 그리고 다음 명령어를 순차적으로 실행해 설치를 진행합니다.
  ```
  # 운영체제(우분투16.04기반)에 초기 환경 세팅
  $ sudo sh install-docker-ubuntu16.04.sh
  
  # 우분투에 파이썬3를 설치하고 필요한 모듈을 설치하여 devops.py 파일이 동작 가능한 환경 구성
- $ sudo install_python3.sh
+ $ sudo sh install_python3.sh
  ```
 
 ## General Guideliens
-- **How to run** 
+1. **실행 방법** 
+```
+$ python3 /usr/app/kakaopay/devops.py -c deploy
+$ python3 /usr/app/kakaopay/devops.py -c stop
+$ python3 /usr/app/kakaopay/devops.py -c start
+$ python3 /usr/app/kakaopay/devops.py -c restart
+$ python3 /usr/app/kakaopay/devops.py -c check
+```
 ### properties:
-- `-c, --command` : '동작[start|stop|restart|deploy]'을 지정합니다.
+- `-c, --command` : '동작'[start | stop | restart | deploy | check]을 지정합니다.
+
+2. **확인방법**
+ - 도커 
+ ```
+ $ python3 /usr/app/kakaopay/devops.py -c check
+ ```
