@@ -9,6 +9,16 @@ import sys
 import argparse
 import subprocess
 
+"""
+python3 devops.py \
+ --command [start | stop | restart | deploy]
+
+or
+
+python3 devops.py \
+ -c start [start | stop | restart | deploy]
+"""
+
 SERVICE_NAME = 'kakaopay'
 DOCKER_COMPOSE_PATH = '/usr/app/' + SERVICE_NAME
 
