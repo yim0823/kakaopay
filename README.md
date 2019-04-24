@@ -22,6 +22,9 @@
    - logback를 설정(logback-spring.xml)하여 log를 file로 적재, daily && filesize 10mb 마다 rollover.
    - Spring-boot의 actuator 이용해 health check 구현, 
      - MonitorController.java [GET /health] 
+     ```
+     http://localhost/health/healthcheck
+     ```
      - application-prod.properties 설정:
      ```
      spring.security.user.name=kakaopay
@@ -34,7 +37,27 @@
  - ubuntu folder: ubuntu16.04로 초기 환경을 도커로 세팅한다.(사용하지 않음)
  - deploy.sh: 도커 이용한 웹서버 무중단 배포를 위한 스크립트.
    - [blue-green](https://subicura.com/2016/06/07/zero-downtime-docker-deployment.html, "BlueGreenDeployment") 배포 방식을 이용하여 무중단 배포를 구현
+   - 단독으로 싫행 가능하지만 devops.py에 의해 실행되게 한다.
+   ```
+   $ sudo devops.py -c delopy
+   ```
  - devops.py: 웹서버 운영을 위한 파이썬3 기반으로한 스크립트.
+   - start : 컨테이너 환경 전체 실행
+   ```
+   $ sudo devops.py -c start
+   ```
+   - stop : 컨테이너 환경 전체 중지
+   ```
+   $ sudo devops.py -c stop
+   ```
+   - restart : 컨테이너 환경 전체 재시작
+   ```
+   $ sudo devops.py -c restart
+   ```
+   - deploy : 웹어플리케이션 무중단 배포
+   ```
+   $ sudo devops.py -c delopy
+   ```
  - docker-compose.blue.yml: 도커에 사용될 docker-compose 파일.
  - docker-compose.green.yml: 도커에 사용될 docker-compose 파일.
  - install-docker-ubuntu16.04.sh: 운영체제(우분투16.04기반)에 초기 환경 세팅하는 스크립트.
