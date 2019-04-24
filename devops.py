@@ -22,7 +22,6 @@ python3 devops.py \
 SERVICE_NAME = 'kakaopay'
 DOCKER_COMPOSE_PATH = '/usr/app/' + SERVICE_NAME
 
-
 def run_shell(*cmd):
     popen = subprocess.Popen(cmd, stdout=subprocess.PIPE, universal_newlines=True)
 
@@ -45,10 +44,13 @@ def main(unused_args):
     exist_green = run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME, '-f', fileName + '.green.yml', 'ps', '|', 'Up')
     if exist_blue != '':
         fileName = fileName + '.blue.yml'
+        color = 'blue'
     elif exist_green != '':
         fileName = fileName + '.green.yml'
+        color = 'green'
     else:
         fileName = fileName + '.blue.yml'
+        color = 'blue'
     
     if command == 'start':
         print('# Start docker-compose')
@@ -62,6 +64,9 @@ def main(unused_args):
     elif command == 'deploy':
         print('# Start non-disruptive deployment')
         run_shell('sudo', 'sh', 'deploy.sh')
+    elif command == 'check':
+        print('# Check the service')
+        run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME, '-f', fileName + '.' + color + '.yml', 'ps', '|', 'Up')
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='The objective of this program is to operate web servers of the Kakaopay.')
@@ -76,4 +81,3 @@ if __name__ == '__main__':
     
     FLAGS, unparsed = parser.parse_known_args()
     main([sys.argv[0]] + unparsed)
-    
