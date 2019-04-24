@@ -11,12 +11,12 @@ import subprocess
 
 """
 python3 devops.py \
- --command [start | stop | restart | deploy]
+ --command [start | stop | restart | deploy| check]
 
 or
 
 python3 devops.py \
- -c start [start | stop | restart | deploy]
+ -c start [start | stop | restart | deploy | check]
 """
 
 SERVICE_NAME = 'kakaopay'
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         required=True,
         type=str,
         default="",
-        help="Choose one of the following: [start | stop | restart | deploy]")
+        help="Choose one of the following: [start | stop | restart | deploy | check]")
     
     FLAGS, unparsed = parser.parse_known_args()
     main([sys.argv[0]] + unparsed)
