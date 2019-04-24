@@ -45,4 +45,4 @@ fi
 
 # Install the necessary packages
 echo "Installing... necessary packages"
-sudo pip3 install -y pandas pyyaml>=3.13 validators>=0.12 argparse
+sudo pip3 install pandas pyyaml>=3.13 validators>=0.12 argparse
