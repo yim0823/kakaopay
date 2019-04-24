@@ -63,7 +63,7 @@ def main(unused_args):
         run_shell('sudo', 'docker-compose', '-f', fileName, 'restart') # sudo docker-compose -f /usr/app/kakaopay/docker-compose.blue.yml restart
     elif command == 'deploy':
         print('# Start non-disruptive deployment')
-        run_shell('sudo', 'sh', 'deploy.sh')
+        run_shell('sudo', 'sh', '/usr/app/kakaopay/deploy.sh')
     elif command == 'check':
         print('# Check the service')
         run_shell('sudo', 'docker-compose', '-p', SERVICE_NAME + '-' + color, '-f', fileName + '.' + color + '.yml', 'ps', '|', 'grep', 'Up')
