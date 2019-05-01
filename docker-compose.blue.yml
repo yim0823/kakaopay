@@ -4,14 +4,14 @@ services:
   server1:
       build: ./spring-boot-sample-web-ui
       tty: true
-      ports:
-          - '8081:3000'
+      volumes:
+          - './spring-boot-sample-web-ui/build/libs:/backend-dir-inside-container'
 
   server2:
       build: ./spring-boot-sample-web-ui
       tty: true
-      ports:
-          - '8082:3000'
+      volumes:
+          - './spring-boot-sample-web-ui/build/libs:/backend-dir-inside-container'
 
   loadbalancer:
       build: ./load-balancer
