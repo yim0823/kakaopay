@@ -12,7 +12,7 @@ RUN mkdir -p /backend-dir-inside-container
 
 # Copy everything inside src to our directory in the container.
 # The reason for the comment is that I will use docker-compose.
-COPY build/libs/$ARTIFACT_NAME /backend-dir-inside-container
+#COPY build/libs/$ARTIFACT_NAME /backend-dir-inside-container
 
 # Set this as the default, working directory.
 #WORKDIR /backend-dir-inside-container
