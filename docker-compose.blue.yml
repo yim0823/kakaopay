@@ -20,7 +20,7 @@ services:
           - server1
           - server2
       ports:
-          - '80:80'
+          - '8080:80'
 
 volumes:
   backend:
